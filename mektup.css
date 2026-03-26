@@ -9,26 +9,40 @@ body {
     transition: background 3s ease-in-out;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    
+    /* MOBİL KAYDIRMA AYARLARI */
+    overflow-y: auto; 
+    overflow-x: hidden; /* Sağa sola kaymasın, sadece aşağı */
+    -webkit-overflow-scrolling: touch; /* iOS için yağ gibi kayma özelliği */
+    
     color: #f2e3c6;
     position: relative;
+    padding: 40px 15px; /* Mobilde yazılar ekrana yapışmasın diye yanlara pay verdik */
 }
 
 body.romantic-bg {
-    background: radial-gradient(circle at center, #2a080c 0%, #050505 100%);
+    background: radial-gradient(circle at center, #2a080c 0%, #050505 100%) fixed !important; 
+    /* "!important" ve "fixed" ekledik */
 }
 
 .hidden {
     display: none !important;
 }
 
+#transition-screen {
+    position: fixed; /* Ekranın tam ortasında sabit kalsın */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 #transition-screen h1 {
     font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #d4c4a8;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     animation: fadeOut 3s forwards; 
 }
 
@@ -37,6 +51,7 @@ body.romantic-bg {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: 5vh; /* Sayfanın çok tepesine yapışmasın */
     animation: fadeIn 2s ease-in-out;
 }
 
@@ -45,52 +60,52 @@ body.romantic-bg {
 }
 
 .letter-container {
-    width: 85%;
-    max-width: 650px;
-    min-height: 250px;
+    width: 90%;
+    max-width: 700px;
+    /* min-height: 280px; -> Sabit yüksekliği kaldırıyoruz ki metne göre uzasın */
     text-align: left;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     padding: 20px;
 }
 
-/* --- YENİ MAKSİMUM OKUNABİLİRLİK FONTU (Playfair Display) --- */
+/* --- OKUNAKLI EB GARAMOND --- */
 #typewriter-text {
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.9rem; /* Serif fontlar daha büyük durduğu için 1.9rem idealdir */
-    line-height: 1.8; /* Satırlar arası boşluk okumayı inanılmaz kolaylaştırır */
-    font-style: italic; /* Romantik bir hava için italik yaptık */
-    color: #e8d8b8;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    font-weight: 400;
+    font-family: 'EB Garamond', serif; 
+    font-size: 1.8rem; 
+    line-height: 1.7; 
+    color: #f2e3c6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
 }
 
 #forgive-section {
     text-align: center;
+    padding-bottom: 80px; /* Butonların altında boşluk kalsın */
     animation: fadeIn 1.5s ease-in-out;
+    width: 100%;
 }
 
 .question {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    margin-bottom: 35px;
-    letter-spacing: 3px;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
 }
 
 .buttons {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Mobilde butonlar sığmazsa alt alta geçer */
 }
 
 button {
     font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.4s ease;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     border-radius: 4px;
 }
@@ -99,27 +114,25 @@ button {
     background: linear-gradient(135deg, #4a0d15 0%, #1a0305 100%);
     color: #f2e3c6;
     border: 1px solid #8b0000;
-    padding: 14px 40px;
+    padding: 12px 35px;
     box-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
     animation: pulseGlow 2s infinite; 
 }
 
 #yes-btn:hover {
-    background: linear-gradient(135deg, #6b0000 0%, #2a080c 100%);
+    background: #6b0000;
     color: #ffffff;
-    box-shadow: 0 0 25px rgba(217, 0, 0, 0.7);
-    transform: scale(1.05);
 }
 
 #no-btn {
     background: rgba(10, 10, 10, 0.6);
     color: #888888;
     border: 1px solid #333333;
-    padding: 12px 30px;
+    padding: 10px 25px;
 }
 
 #final-screen {
-    position: absolute;
+    position: fixed; /* Final mesajı ekranın ortasına sabitlensin */
     top: 0;
     left: 0;
     width: 100%;
@@ -128,18 +141,16 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: 10;
-    animation: fadeIn 3s ease-in-out;
+    z-index: 100;
 }
 
 .final-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 3.5rem;
     color: #ff3333; 
-    font-style: italic;
-    text-shadow: 0 0 20px rgba(255, 51, 51, 0.5), 2px 2px 4px rgba(0,0,0,0.8);
     font-weight: 700;
     line-height: 1.3;
+    padding: 20px;
 }
 
 /* Animasyonlar */
@@ -154,7 +165,7 @@ button {
 }
 
 @keyframes pulseGlow {
-    0% { box-shadow: 0 0 10px rgba(139, 0, 0, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(217, 0, 0, 0.6); }
-    100% { box-shadow: 0 0 10px rgba(139, 0, 0, 0.4); }
+    0% { box-shadow: 0 0 10px rgba(139, 0, 0, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(217, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(139, 0, 0, 0.3); }
 }

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalScreen = document.getElementById('final-screen');
 
     // BURAYA KENDİ MEKTUBUNU YAZIYORSUN
-    const myLetter = "Sevgilim...<br><br>Seni kırdığım için çok üzgünüm. Buraya ona kendini affettirecek o güzel sözleri, içinden gelenleri yazabilirsin.<br>Her şeyin eskisi gibi güzel olmasını o kadar çok istiyorum ki...<br><br>Seni çok seviyorum.";
+    const myLetter = "Sevgilim...<br><br>Evet Aşkım farkındayım, Bugün(Aslında dün gece ama sen bunu bu sabah okuyacaksın) çok gereksiz yere tartıştık. Durduk yere hem de hiç bir sebebi olmadan... Biliyorum gereksiz yere çok fazla tartışma çıkarıyorum seni boğuyorum, arayarak seni rahatsız ediyorum farkındayım. Sen bana tripli ya da kızgınken aşkım gözüme gram uyku girmiyor gerçekten. Ben de bunun için sana böyle bir süpriz yapmaya karar verdim. Seni aşkım gecenin köründe gereksiz yere çok kere arayıp rahatsız edip dipboğaz ettiğim için özür dilerim hayatım. Umarım bu ufak tatlı özürü kabul edersin aşkım. Biraz fazla zamanımı aldı yapmak. Şu an saat 4.12 aşkım. <br>Seni kızdırdığım için durduk yere çok özür dilerim... Beni affeder misin dünyalara güzeli karım...<br><br>Seni çok seviyorum.";
 
     // Sayfa açıldıktan 3.5 saniye sonra geçişi başlat
     setTimeout(() => {
