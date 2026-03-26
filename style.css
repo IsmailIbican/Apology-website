@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Senin harika siyah-beyaz gotik arka planın */
+    background-image: url('new-gothic-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000000; 
+    
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    overflow: hidden;
+    position: relative; 
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Kemerin/Boşluğun içindeki etkileşim alanı */
+.interactive-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    /* Resmin merkezine göre bu ayarı değiştirebilirsin (örn: 100px, 150px) */
+    margin-top: 150px; 
+    
+    width: 100%; 
+    max-width: 500px; 
+    text-align: center;
+}
+
+/* --- YAZI TASARIMLARI (Arka plana uyumlu beyaz/gümüş tonları) --- */
+h1 {
+    font-family: 'Dancing Script', cursive; 
+    font-size: 3.8rem; 
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #ffffff; /* Saf beyaz */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 2px 2px 5px rgba(0,0,0,0.9); /* Hafif beyaz ışıltı */
+}
+
+.subtitle {
+    font-family: 'Dancing Script', cursive; 
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: #cccccc; /* Gümüş / Açık gri */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    letter-spacing: 2px;
+}
+
+/* --- YENİ VE ŞIK ŞİFRE KUTUSU TASARIMI --- */
+input {
+    background: rgba(255, 255, 255, 0.03); /* Çok hafif, transparan siyah cam efekti */
+    border: 1px solid #444444; /* Etrafını saran ince, zarif bir çerçeve */
+    border-radius: 4px; /* Köşeleri çok hafif yumuşatılmış */
+    color: #ffffff; 
+    font-size: 1.4rem;
+    padding: 12px 25px;
+    text-align: center;
+    letter-spacing: 6px;
+    width: 280px;
+    outline: none;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 0.4s ease;
+    margin-bottom: 40px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8); /* İçeriye doğru derinlik hissi */
+}
+
+/* Şifre kutusuna tıklandığında (Odaklanınca) */
+input:focus {
+    border: 1px solid #ffffff; /* Çerçeve parlayarak beyaz olur */
+    background: rgba(255, 255, 255, 0.08); /* İçi biraz aydınlanır */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), inset 0 0 10px rgba(0,0,0,0.8); /* Dışa doğru zarif bir ışık saçar */
+}
+
+/* "Şifre" yazan silik metin (Placeholder) */
+input::placeholder {
+    color: #666666;
+    font-style: italic;
+    letter-spacing: 4px;
+}
+
+/* --- ZARFI AÇ BUTONU (Gümüş/Siyah Konseptli) --- */
+button {
+    font-family: 'Cinzel', serif; 
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+#login-btn {
+    background: rgba(15, 15, 15, 0.8); /* Yarı saydam koyu gri/siyah */
+    color: #cccccc; /* Gümüş metin */
+    border: 1px solid #666666; /* Gümüş kenarlık */
+    padding: 14px 45px;
+    animation: pulseSilver 2.5s infinite; /* Gümüş rengi kalp atışı animasyonu */
+}
+
+#login-btn:hover {
+    background: rgba(40, 40, 40, 0.9); /* Üzerine gelince biraz aydınlanır */
+    color: #ffffff; /* Metin tam beyaz olur */
+    border-color: #ffffff; /* Kenarlık beyazlar */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+#error-msg {
+    color: #cc3333; /* Hata mesajı çok patlamasın diye sönük bir kırmızı */
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+}
+
+#error-msg.show {
+    opacity: 1;
+}
+
+/* Gümüş renkli yeni animasyon */
+@keyframes pulseSilver {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); }
+}
